@@ -1,3 +1,4 @@
+import {projectTodoSuccession, projectTodoClosure} from "./todos/succession.ts";
 import {projectTodoSummaryLanes, projectLegacyTodoWorkCounts} from "./todos/summary_lanes.ts";
 import {delegationInventoryItem, delegationInventoryQuery, delegationPreflight, selectDelegationBinding, transitionDelegationObservation} from "./collaboration/delegation.ts";
 import {planChatMode} from "./collaboration/chat_mode.ts";
@@ -410,6 +411,8 @@ export function createEffectRuntimeHandlers(
     ["todo.public_update.plan", planPublicTodoUpdate],
     ["todo.standing_decision.project", evaluateStandingDecisionProjection],
     ["todo.summary_lanes.project", projectTodoSummaryLanes],
+    ["todo.succession.project", projectTodoSuccession],
+    ["todo.succession.closure", projectTodoClosure],
     ["todo.work_counts.project", projectLegacyTodoWorkCounts],
     ["todo.decision_scope.evaluate", evaluateDecisionScope],
     ["agent.capability_gate.evaluate", evaluateCapabilityGate],
