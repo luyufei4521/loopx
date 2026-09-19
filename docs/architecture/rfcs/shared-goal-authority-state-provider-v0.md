@@ -3016,6 +3016,14 @@ independent legacy three-arm comparison or D2 soak.
   move. Exit with deterministic freshness/readback and an actionable repair
   path; a successful render once is insufficient.
 
+Continuation and closure readback now uses the same TS relation evidence for
+completed-work gaps and handoff states before filtering/capping. Capture v1
+retains reachable archived successors and original deferred status; derived
+summary evaluations never enter provider records. Real CLI and complete-graph
+provider conformance cover the consumer family. See [operation and semantic
+changes](../../reference/todo-continuation-readback.md). This closes a bounded
+L5/L7 gap; permanent projection delivery/recovery, D2 and D3 are still open.
+
 **D2 — qualify exactly one local profile; independent of PostgreSQL deployment.**
 
 - Reconcile the SQLite candidate #4121 with Section 7.2 before adding code.
@@ -3068,14 +3076,13 @@ PostgreSQL shares the TS semantic contracts but has independent service,
 tenant, restore and capacity qualification; its deployment must not delay the
 local profile's work.
 
-The reconciled baseline includes #4286 (command receipts/archive), #4289
-(typed work/ownership intent), #4292 (declarative decision metadata), and #4304
-(canonical handoff mode). Candidate #4316 closes Goal Channel observation;
-#4317 unifies provider opening; #4348 adds canonical renew; #4328 is the first
-SQLite D2 measurement/recovery batch. They are review candidates, not merged
-prerequisites or proof of the full cards. #4334 is the independent PostgreSQL
-service-admission candidate. Re-read actual heads before composing work; do
-not carry their already-merged ancestors as new changes.
+The baseline includes merged command/receipt, provider-opening, lease and
+observation work (#4286, #4289, #4292, #4304, #4316, #4317, #4348 and #4334).
+#4328 is the merged first SQLite D2 batch, not completed durability qualification.
+Monitor observation/reactivation #4732 is merged. Linked User-decision atomic
+followthrough #4754 remains a separate open dependency at this checkpoint;
+this read-policy work does not duplicate its transaction owner. Recheck current
+heads before integration.
 
 The identifiers below are **planned PR packages**, not reserved GitHub numbers.
 A package may split at a real effect/compatibility boundary; changing languages
@@ -3096,9 +3103,13 @@ or moving a helper is not by itself a package exit.
 **Cadence is evidence-based.** First reconcile the active stack, then deliver A
 packages as complete operations while L6/L7 progress independently. B integrates
 those contracts into complete user flows; C has one reproducible qualification
-checkpoint; D changes the default in its own reviewable PR. This is roughly
-nine cohesive packages at this checkpoint, not a line-count target or a promise
-of nine merges. Avoid concurrent edits to the same transaction owner; share
+checkpoint; D changes the default in its own reviewable PR. After the open User-decision work and this continuation-readback slice, plan
+roughly **5–8 additional cohesive PR packages**, subject to the final caller audit:
+remaining L2/L3 effect-owned callers (1–2), D1/L5 projection delivery (1),
+contributor-owned L6/D2 capacity/recovery/soak (1–2), integrated L7/L8 capture and
+fenced export/rollback (1–2), and L9 default/onboarding/bounded retirement (1).
+These are review boundaries, not promised merge counts or permission to parallelize
+conflicting owners. Avoid concurrent edits to the same transaction owner; share
 fixture/contracts early and rebase after the owner lands.
 
 There is no defensible calendar completion date before the L2/L3 command
