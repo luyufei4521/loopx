@@ -1,3 +1,4 @@
+import {registerSuccessionReadConformance} from "./succession_read_conformance.ts";
 import {registerUserCompletionUpdateConformance} from "./user_completion_update_conformance.ts";
 import {registerLeaseAcquisitionConformance} from "./lease_acquisition_conformance.ts";
 import {registerClaimTransferConformance} from "./claim_transfer_conformance.ts";
@@ -220,6 +221,7 @@ export function registerAuthorityStoreConformance(
   registerLeaseAcquisitionConformance(providerName, factory);
   registerAuthorityScanConformance(providerName, factory);
   registerOwnershipObservationConformance(providerName, factory);
+  registerSuccessionReadConformance(providerName, factory);
   registerNativePlanningUpdateConformance(providerName, factory);
   registerUserCompletionUpdateConformance(providerName, factory);
   registerMonitorConfigurationConformance(providerName, factory);
