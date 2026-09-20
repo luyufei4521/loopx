@@ -5,6 +5,13 @@ from typing import Any
 
 def build_todo_write_hint(goal_id: str) -> dict[str, str]:
     return {
+        # Agent Todos are offered to the planner by the current priority band, so
+        # a row authored without a marker is written but cannot be bound by the
+        # same Turn. Following this hint on 2026-09-17 and 2026-09-20 produced
+        # open, claimed rows that `quota should-run --todo-id` then rejected with
+        # `candidate_not_currently_eligible`. Only the template teaches the
+        # marker: agent-facing CLI output is budgeted per row, and this hint has
+        # no room to grow.
         "rule": "Write user/owner actions to User Todo, not Next Action/docs/chat.",
         "user_gate_command_template": (
             f"loopx todo add --goal-id {goal_id} --role user "
@@ -16,7 +23,7 @@ def build_todo_write_hint(goal_id: str) -> dict[str, str]:
             "--task-class user_action --bound-agent <id> --text '<action>'"
         ),
         "agent_todo_command_template": (
-            f"loopx todo add --goal-id {goal_id} --role agent --text '<agent action>'"
+            f"loopx todo add --goal-id {goal_id} --role agent --text '[P1] <agent action>'"
         ),
         "section": "User Todo / Owner Review Reading Queue",
     }

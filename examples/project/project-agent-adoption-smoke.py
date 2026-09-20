@@ -256,6 +256,10 @@ def main() -> int:
         assert approved_quota["todo_write_hint"]["agent_todo_command_template"].startswith(
             f"loopx todo add --goal-id {GOAL_ID} --role agent "
         ), approved_quota
+        # The planner offers the current priority band, so the machine's own
+        # authoring template has to teach the marker that makes a row bindable.
+        assert "[P1]" in approved_quota["todo_write_hint"]["agent_todo_command_template"], approved_quota
+        assert "[P1]" in approved_quota["todo_write_hint"]["agent_todo_command_template"], approved_quota
 
         packet = run_cli(root, registry_path, "review-packet", "--goal-id", GOAL_ID, "--scan-root", str(project))
         assert packet["ok"] is True, packet
